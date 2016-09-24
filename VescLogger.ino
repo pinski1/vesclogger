@@ -21,7 +21,7 @@ void setup() {
 	//Setup UART port
 	Serial1.begin(115200);
  #ifdef DEBUG
- 	//SEtup debug port
+ 	//Setup debug port
  	Serial.begin(115200);
  	#endif
 }
@@ -40,7 +40,10 @@ void loop() {
 	
 	if (VescUartGetValue(measuredValues)) {
 		Serial.print("Loop: "); Serial.println(count++);
-		SerialPrint(measuredValues);
+//		SerialPrint(measuredValues);
+    Serial.print("RPM :"); Serial.println(measuredValues.rpm, DEC);
+    Serial.print("Bat V:"); Serial.println(measuredValues.inpVoltage, 2);
+    
 	}
 	else
 	{
